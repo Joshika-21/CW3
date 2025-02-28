@@ -15,6 +15,8 @@ class TaskItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Colors.blueGrey[900],
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: ListTile(
         leading: Checkbox(
           value: task.isCompleted,
@@ -23,11 +25,12 @@ class TaskItem extends StatelessWidget {
         title: Text(
           task.name,
           style: TextStyle(
+            color: Colors.white,
             decoration: task.isCompleted ? TextDecoration.lineThrough : null,
           ),
         ),
         trailing: IconButton(
-          icon: Icon(Icons.delete, color: Colors.red),
+          icon: Icon(Icons.delete, color: Colors.redAccent),
           onPressed: onDelete,
         ),
       ),

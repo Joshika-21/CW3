@@ -40,9 +40,12 @@ class _TaskListScreenState extends State<TaskListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Task Manager")),
+      appBar: AppBar(
+        title: Text("Task Manager"),
+        backgroundColor: Color(0xFF1E1E1E),
+      ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(16),
         child: Column(
           children: [
             Row(
@@ -50,20 +53,34 @@ class _TaskListScreenState extends State<TaskListScreen> {
                 Expanded(
                   child: TextField(
                     controller: _taskController,
-                    decoration: InputDecoration(labelText: 'Enter Task'),
+                    decoration: InputDecoration(
+                      labelText: 'Enter Task',
+                      filled: true,
+                      fillColor: Colors.white10,
+                      border: OutlineInputBorder(),
+                    ),
+                    style: TextStyle(color: Colors.white),
                   ),
                 ),
                 SizedBox(width: 10),
-                ElevatedButton(onPressed: _addTask, child: Text("Add")),
+                ElevatedButton(
+                  onPressed: _addTask,
+                  child: Text("Add"),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blueAccent,
+                  ),
+                ),
               ],
             ),
             SizedBox(height: 10),
             ElevatedButton(
               onPressed: _clearAllTasks,
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.redAccent,
+              ),
               child: Text("All Clear", style: TextStyle(color: Colors.white)),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 20),
             Expanded(
               child: ListView.builder(
                 itemCount: _tasks.length,

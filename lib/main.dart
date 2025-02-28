@@ -11,7 +11,9 @@ class TaskManagerApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Task Manager',
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: Color(0xFF121212),
+      ),
       home: TaskListScreen(),
     );
   }
